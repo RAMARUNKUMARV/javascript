@@ -9,16 +9,14 @@ async function Login (req,res) {
 
    try{
     if (user){
-        console.log("user",user);
     let token =   JWT.CreateJWTToken(user.id)
-    console.log("token",token)
     return res.status(200).json({ 
         message: token
     });
     }
     }
      catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ message: err.message });
       }
 }
 
